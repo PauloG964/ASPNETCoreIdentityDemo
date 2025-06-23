@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ASPNETCoreIdentityDemo.Controllers
 {
+    [Authorize(Roles = "Admin,Moderator")]
     public class HomeController : Controller
     {
         [AllowAnonymous]
