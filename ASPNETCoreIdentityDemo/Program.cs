@@ -20,6 +20,13 @@ builder.Services.AddIdentity<ApplicationUser, ApplicationRole>()
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("SQLServerIdentityConnection")));
 
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("DeleteRolePolicy",
+        policy => policy.RequireClaim("Delete Role")
+                        .RequireClaim("Create Role"));
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
