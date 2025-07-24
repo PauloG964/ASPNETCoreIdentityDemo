@@ -1,4 +1,5 @@
-﻿@model IEnumerable<ApplicationUser>
+﻿@inject IAuthorizationService authorizationService
+@model IEnumerable<ApplicationUser>
 
 @{
     ViewBag.Title = "All Users";
